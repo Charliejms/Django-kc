@@ -15,10 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from users.views import LoginView, LogoutView
 
-from photos.views import hello
+from photos.views import HomeView, PhotoDetailView, PhotoCreationView, PhotosListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', hello)
+    # photos URL
+    url(r'^$', HomeView.as_view()),
+    url(r'^photo/(?P<pk>[0-9]+)$', PhotoDetailView.as_view()),
+    url(r'^create$', PhotoCreationView.as_view()),
+    url(r'^photos/$', PhotosListView.as_view),
+
+    # user URL
+    url(r'^login$', LoginView.as_view()),
+    url(r'^logout$', LogoutView.as_view()),
+
 ]

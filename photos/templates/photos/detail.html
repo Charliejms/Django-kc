@@ -1,0 +1,13 @@
+{% include 'base.html' %}
+{% block title %} {{ photo.name }} {% endblock%}
+
+{% block body %}
+    <img src="{{ photo.url }}">
+
+    <p> {{photo.description}}</p>
+    <p>
+        <strong>Autor:</strong>
+        {{photo.owner.first_name}}
+        {{photo.owner.last_name}}
+    </p>
+{% endblock %}
