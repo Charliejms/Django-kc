@@ -39,7 +39,7 @@ class LoginView(View):
             else:
                 if user.is_active:
                     django_login(request, user)
-                    return redirect(request.GET.get('next', '/'))
+                    return redirect(request.GET.get('next', 'photos_home'))
                 else:
                     error_message = "Cuenta de usuario inactiva"
         context = {
@@ -59,4 +59,4 @@ class LogoutView(View):
         """
         if request.user.is_authenticated():
             django_logout(request)
-        return redirect('/')
+        return redirect('photos_home')

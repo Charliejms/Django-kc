@@ -8,12 +8,12 @@
 {% include "photos/includes/menu.html"%}
 <h1>Bienvenido a Flikr</h1>
 
-{% if photos_list|length > 0 %}
+    {% if photos_list|length > 0 %}
     <h2>Últimas fotos publicadas</h2>
-    {% include "photos/includes/photo_loop.html"%}
-{% else %}
-    {% include "photos/includes/join_us.html"%}
-{% endif %}
+        {% include "photos/includes/photo_loop.html"%}
+    {% else %}
+        {% include "photos/includes/join_us.html"%}
+    {% endif %}
 
 </body>
 </html>
